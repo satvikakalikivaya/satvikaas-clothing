@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kids Fun Shop</title>
+<style>
+    * {margin:0; padding:0; box-sizing:border-box; font-family:'Arial', sans-serif;}
+    body {background:#fef9f4; color:#333;}
+    header {
+        background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+        color:white; text-align:center; padding:80px 20px;
+    }
+    header h1 {font-size:3rem; margin-bottom:10px; text-shadow: 1px 1px 2px rgba(0,0,0,0.2);}
+    header p {font-size:1.2rem; opacity:0.9;}
+    .products {display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:20px; padding:40px 20px;}
+    .card {
+        background:white; border-radius:15px; box-shadow:0 10px 25px rgba(0,0,0,0.1);
+        overflow:hidden; transition:transform 0.3s, box-shadow 0.3s;
+    }
+    .card:hover {transform:translateY(-8px); box-shadow:0 15px 30px rgba(0,0,0,0.2);}
+    .card img {width:100%; height:250px; object-fit:cover;}
+    .card-content {padding:20px;}
+    .card-content h3 {margin-bottom:10px; font-size:1.3rem; color:#ff6f61;}
+    .card-content p {font-size:0.9rem; margin-bottom:10px; color:#555;}
+    .card-content span {font-weight:bold; font-size:1rem; color:#222;}
+    .btn {
+        display:inline-block; padding:10px 20px; background:#ff6f61; color:white;
+        border:none; border-radius:5px; cursor:pointer; transition:background 0.3s;
+    }
+    .btn:hover {background:#e65b50;}
+</style>
+</head>
+<body>
+
+<header>
+    <h1>Kids Fun Shop</h1>
+    <p>🎈 Colorful Accessories for Your Little Ones!</p>
+</header>
+
+<section class="products">
+    <div class="card" data-name="Cute T-Shirt" data-price="$15.99">
+        <img src="https://via.placeholder.com/300x250/ffb6c1/fff?text=Cute+T-Shirt" alt="Cute T-Shirt">
+        <div class="card-content">
+            <h3>Cute T-Shirt</h3>
+            <p>Soft cotton t-shirt with fun prints.</p>
+            <span>$15.99</span><br><br>
+            <button class="btn" onclick="buyNow(this)">Buy Now</button>
+        </div>
+    </div>
+    <div class="card" data-name="Colorful Dress" data-price="$25.99">
+        <img src="https://via.placeholder.com/300x250/87cefa/fff?text=Colorful+Dress" alt="Colorful Dress">
+        <div class="card-content">
+            <h3>Colorful Dress</h3>
+            <p>Vibrant dress for playful occasions.</p>
+            <span>$25.99</span><br><br>
+            <button class="btn" onclick="buyNow(this)">Buy Now</button>
+        </div>
+    </div>
+    <div class="card" data-name="Cute Hoodie" data-price="$18.99">
+        <img src="https://via.placeholder.com/300x250/f4a261/fff?text=Cute+Hoodie" alt="Cute Hoodie">
+        <div class="card-content">
+            <h3>Cute Hoodie</h3>
+            <p>Warm hoodie with fun designs.</p>
+            <span>$18.99</span><br><br>
+            <button class="btn" onclick="buyNow(this)">Buy Now</button>
+        </div>
+    </div>
+    <div class="card" data-name="Fun Sneakers" data-price="$22.99">
+        <img src="https://via.placeholder.com/300x250/f0e68c/fff?text=Fun+Sneakers" alt="Fun Sneakers">
+        <div class="card-content">
+            <h3>Fun Sneakers</h3>
+            <p>Comfortable sneakers for active kids.</p>
+            <span>$22.99</span><br><br>
+            <button class="btn" onclick="buyNow(this)">Buy Now</button>
+        </div>
+    </div>
+    <div class="card" data-name="Cute Jacket" data-price="$30.99">
+        <img src="https://via.placeholder.com/300x250/dda0dd/fff?text=Cute+Jacket" alt="Cute Jacket">
+        <div class="card-content">
+            <h3>Cute Jacket</h3>
+            <p>Stylish jacket to keep kids warm.</p>
+            <span>$30.99</span><br><br>
+            <button class="btn" onclick="buyNow(this)">Buy Now</button>
+        </div>
+    </div>
+    <div class="card" data-name="Colorful Hat" data-price="$9.99">
+        <img src="https://via.placeholder.com/300x250/90ee90/fff?text=Colorful+Hat" alt="Colorful Hat">
+        <div class="card-content">
+            <h3>Colorful Hat</h3>
+            <p>Fun and protective hat for sunny days.</p>
+            <span>$9.99</span><br><br>
+            <button class="btn" onclick="buyNow(this)">Buy Now</button>
+        </div>
+    </div>
+</section>
+
+<script>
+function buyNow(button){
+    const card = button.closest('.card');
+    const productName = card.dataset.name;
+    const productPrice = card.dataset.price;
+    localStorage.setItem('selectedProduct', JSON.stringify({name: productName, price: productPrice, quantity: 1}));
+    window.location.href = 'checkout.html';
+}
+</script>
+
+</body>
+</html>
